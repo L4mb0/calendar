@@ -34,7 +34,7 @@
 
         case 'modificar':
             //instruccion modificar
-            $sentenciaSQL=$pdo->prepare("UPDATE eventos SET title=:title, descripcion=:descripcion,color=:color,textColor=:textColor,start=:start,end=:end WHERE ID=:ID");
+            $sentenciaSQL=$pdo->prepare("UPDATE eventos SET title=:title,descripcion=:descripcion,color=:color,textColor=:textColor,start=:start,end=:end WHERE ID=:ID");
 
             $respuesta=$sentenciaSQL->execute(array(
                 "ID" => $_POST['id'],
@@ -48,6 +48,10 @@
         echo json_encode($respuesta);
 
             break;
+
+
+
+
         default:
             //seleccioar eventos del calendario
             $sentenciaSQL= $pdo->prepare("SELECT * FROM eventos");
